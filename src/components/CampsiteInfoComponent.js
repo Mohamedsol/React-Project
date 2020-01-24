@@ -99,7 +99,7 @@ import { Control, LocalForm, Errors } from 'react-redux-form';
         render(){
             return(
                 <React.Fragment>
-                    <button outline onClick={this.toggleModal}><i className="fa fa-pencil fa-lg" />Submit Comment</button>
+                    <Button outline onClick={this.toggleModal}><i className= "fa fa-pencil fa-lg" />Submit Comment</Button>
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                     <ModalHeader toggle={this.toggleModal}>Submit Comment</ModalHeader>
                     <ModalBody>
