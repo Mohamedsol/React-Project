@@ -19,8 +19,8 @@ import { baseUrl } from '../shared/baseUrl';
             </div>
               );
             }
-            function RenderComments({comments, addComment, campsiteId}) {
-                if (comments) {
+    function RenderComments({comments, postComment, campsiteId}) {
+        if (comments) {
             return (
                 <div className="col-md-5 m-1">
                     <h4>Comments</h4>
@@ -34,11 +34,10 @@ import { baseUrl } from '../shared/baseUrl';
                             
                         );
                     })}
-                <CommentForm campsiteId={campsiteId} addComment={addComment} />
-                </div>
-                
+                <CommentForm campsiteId={campsiteId} postComment={postComment} />
+                </div>      
             );
-        }
+    }
        
         return <div />
  
@@ -79,14 +78,18 @@ import { baseUrl } from '../shared/baseUrl';
                         <hr />
                     </div>
                 </div>
+                
                 <div className="row">
+                <div className="col-md-5 m-1">
                     <RenderCampsite campsite={props.campsite} />
+                   </div> 
                     <RenderComments 
                         comments={props.comments}
-                        addComment={props.addComment}
+                        postComment={props.postComment}                   
                         campsiteId={props.campsite.id}
                     />
                 </div>
+                
             </div>
         );
         }
@@ -121,8 +124,8 @@ import { baseUrl } from '../shared/baseUrl';
         }
         handleSubmit(values) {
             this.toggleModal();
-            this.props.addComment(this.props.campsiteId, values.rating, values.author, values.text);
-    }
+            this.props.postComment(this.props.campsiteId, values.rating, values.author, values.text);
+        }
         
         render(){
             return(
